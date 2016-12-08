@@ -11,6 +11,7 @@
         "noImplicitAny": false,
         "noImplicitUseStrict": false,
         "removeComments": true,
+        "noEmitHelpers": true,
         "noLib": false,
         "ourDir": "build/",
         "preserveConstEnums": true,
