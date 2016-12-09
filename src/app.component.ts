@@ -1,7 +1,17 @@
 import { Component } from '@angular/core';
+import * as moment from "moment";
 
 @Component({
   selector: 'my-app',
-  template: `<h1>Hello Moikka {{name}}</h1>`,
+  template: `<input [(ngModel)]="foo">
+
+<p>Hello {{foo}}!</p>
+  `,
 })
-export class AppComponent { name = 'Angular'; }
+
+export class AppComponent {
+  name = 'Angular';
+  onKey(event:any) {
+    this.name = event.target.value;
+  }
+}
