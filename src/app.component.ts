@@ -3,9 +3,9 @@ import * as moment from "moment";
 
 @Component({
   selector: 'my-app',
-  template: `<input [(ngModel)]="foo">
+  template: `<input [(ngModel)]="name">
 
-<p>Hello {{foo}}!</p>
+<p>Hello {{name}}</p>
   `,
 })
 
