@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import * as moment from "moment";
 
+
+
 @Component({
   selector: 'my-app',
-  template: `<input [(ngModel)]="name">
-
-<p>Hello {{name}}</p>
-  `,
+  template: require("~/views/hello.html"),
 })
 
 export class AppComponent {
   name = 'Angular';
-  onKey(event:any) {
+  onKey(event: any) {
     this.name = event.target.value;
   }
 }

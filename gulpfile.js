@@ -13,7 +13,11 @@ let fuseBox = new fsbx.FuseBox({
     outFile: "./build/out.js",
 
     // Essential plugins to work with typescript
-    plugins: [fsbx.TypeScriptHelpers, fsbx.JSONPlugin]
+    plugins: [
+        fsbx.TypeScriptHelpers(),
+        fsbx.JSONPlugin(),
+        fsbx.HTMLPlugin({ useDefault: false })
+    ]
 });
 
 
