@@ -1,0 +1,5 @@
+module.exports = { contents : "\"use strict\";\nrequire(\"reflect-metadata\");\nrequire(\"zone.js/dist/zone\");\nconst platform_browser_dynamic_1 = require(\"@angular/platform-browser-dynamic\");\nconst core_1 = require(\"@angular/core\");\nconst app_module_1 = require(\"./app.module\");\ncore_1.enableProdMode();\nplatform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);\n", 
+dependencies : ["reflect-metadata","zone.js/dist/zone","@angular/platform-browser-dynamic","@angular/core","./app.module"], 
+sourceMap : "{\"version\":3,\"file\":\"main.js\",\"sourceRoot\":\"\",\"sources\":[\"main.ts\"],\"names\":[],\"mappings\":\";AAAA,4BAA0B;AAC1B,6BAA2B;AAE3B,gFAA2E;AAC3E,wCAA+C;AAC/C,6CAAyC;AACzC,qBAAc,EAAE,CAAC;AACjB,iDAAsB,EAAE,CAAC,eAAe,CAAC,sBAAS,CAAC,CAAC\",\"sourcesContent\":[\"import \\\"reflect-metadata\\\";\\nimport \\\"zone.js/dist/zone\\\";\\n\\nimport { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\\nimport { enableProdMode } from '@angular/core';\\nimport { AppModule } from './app.module';\\nenableProdMode();\\nplatformBrowserDynamic().bootstrapModule(AppModule);\\n\"]}",
+mtime : 1481269391000
+};
