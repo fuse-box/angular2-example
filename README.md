@@ -19,6 +19,13 @@ let fuseBox = new fsbx.FuseBox({
 });
 ```
 
+```js
+npm install
+gulp start
+```
+
+And open index.html in your favourite browser. Start making changes!
+
 Project re-compiles (with cache) in approx. 40-50ms!
 
 
