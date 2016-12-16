@@ -24,7 +24,7 @@ npm install
 gulp start
 ```
 
-![performance][https://github.com/fuse-box/angular2-example/blob/master/screen.png]
+![performance](https://github.com/fuse-box/angular2-example/blob/master/screen.png)
 
 And open index.html in your favourite browser. Start making changes!
 
