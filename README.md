@@ -24,6 +24,8 @@ npm install
 gulp start
 ```
 
+![performance][screen.png]
+
 And open index.html in your favourite browser. Start making changes!
 
 Project re-compiles (with cache) in approx. 40-50ms!
