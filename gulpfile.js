@@ -14,7 +14,7 @@ let fuseBox = new fsbx.FuseBox({
 
     // Essential plugins to work with typescript
     plugins: [
-        fsbx.TypeScriptHelpers(), [/\.less$/, fsbx.LESSPlugin(), fsbx.CSSPlugin()],
+        fsbx.TypeScriptHelpers(), [fsbx.LESSPlugin(), fsbx.CSSPlugin()],
         fsbx.JSONPlugin(),
         fsbx.HTMLPlugin({
             useDefault: false
