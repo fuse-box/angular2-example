@@ -1,5 +1,6 @@
 import "reflect-metadata";
 import "zone.js/dist/zone";
+import "./less/styles.less";
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
