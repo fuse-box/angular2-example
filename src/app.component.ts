@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'my-app',
-  template: require("~/views/hello.html"),
+    selector: 'app',
+    template: `<todo-list></todo-list>`,
 })
-export class AppComponent {
-  name = 'Angular';
-  onKey(event: any) {
-    this.name = event.target.value;
-  }
-}
+export class AppComponent {}

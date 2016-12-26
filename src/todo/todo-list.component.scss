@@ -1,0 +1,45 @@
+
+todo-list {
+    .main-title {
+        text-align: center;
+        font-size: 45px;
+        font-family: Roboto,"Helvetica Neue",sans-serif;
+        margin-bottom: 10px;
+        opacity: 0.3;
+
+        @media (max-width: 400px) {
+            font-size: 25px;
+        }
+    }
+
+    .center-card {
+        margin: 0 auto 20px;
+        max-width: 600px;
+        box-sizing: border-box;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    .md-tab-label {
+        width: 33.333333%;
+    }
+
+    md-tab-body {
+        padding: 15px 20px;
+    }
+
+    md-card-content {
+        margin-bottom: 0;
+    }
+
+    md-card-actions {
+        margin: 0;
+        text-align: right;
+    }
+
+    .padding-none {
+        padding: 0;
+    }
+}

@@ -1,15 +1,4 @@
-.project
-.settings
 node_modules/
-.language-cache/
+dist/
+.fusebox/
 .vscode/
-yarn.lock
-build/
-out.js
-.DS_Store
-.tmp/
-.idea/
-sourcemaps.js.map
-foo.js
-eee.js
-.fusebox

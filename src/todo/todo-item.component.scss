@@ -1,0 +1,22 @@
+.todo-item {
+    display: flex;
+    padding: 10px 0;
+
+    .checkbox-label {
+        align-self: center;
+    }
+    .edit-input {
+        flex: 1;
+        padding: 0 0 0 28px;
+        margin-right: 45px;
+        margin-top: -4px;
+    }
+    .menu-button {
+        margin-left: auto;
+        color: #ccc;
+
+        &:hover {
+            color: #333;
+        }
+    }
+}
