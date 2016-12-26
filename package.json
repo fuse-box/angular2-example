@@ -1,5 +1,5 @@
 {
-  "name": "angular2-playground",
+  "name": "fusebox-angular",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joselee/angular2-playground.git"
+    "url": "git+https://github.com/fuse-box/angular2-example.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/joselee/angular2-playground/issues"
+    "url": "https://github.com/fuse-box/angular2-example/issues"
   },
-  "homepage": "https://github.com/joselee/angular2-playground#readme",
+  "homepage": "https://github.com/fuse-box/angular2-example#readme",
   "devDependencies": {
     "@types/lodash": "^4.14.44",
     "browser-sync": "^2.18.5",
