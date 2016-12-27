@@ -1,8 +1,5 @@
-'use strict';
 const gulp = require('gulp');
 const fsbx = require('fuse-box');
-const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const distDIR = 'dist';
@@ -13,7 +10,6 @@ const fuseBox = fsbx.FuseBox.init({
         bundleReference: 'app.js.map',
         outFile: './dist/app.js.map',
     },
-    cache: true,
     outFile: './dist/app.js',
     plugins: [
         [
