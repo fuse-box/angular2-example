@@ -26,16 +26,15 @@ const fuseBox = fsbx.FuseBox.init({
     ]
 });
 
-gulp.task('ts', () => {
+gulp.task('fusebox', () => {
     return fuseBox.bundle('>main.ts');
 });
 
 gulp.task('index', () => {
     return gulp.src('src/index.html').pipe(gulp.dest(distDIR));
 });
-gulp.task('watch', ['ts', 'index'], () => {
-    gulp.watch('src/**/*.**', ['ts']);
-    gulp.watch('src/index.html', ['index']);
+gulp.task('watch', ['fusebox', 'index'], () => {
+    gulp.watch('src/**/*.**', ['fusebox', 'index']);
 });
 gulp.task('default', ['watch'], () => {
     browserSync.init({
