@@ -1,9 +1,8 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
-@import '../node_modules/@angular/material/core/theming/prebuilt/indigo-pink.scss';
+@import 'node_modules/@angular/material/core/theming/prebuilt/indigo-pink.scss';
 @import 'todo/todo-list.component';
 @import 'todo/todo-item.component';
-
 body {
     background-color: #eee;
-    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }

@@ -7,7 +7,7 @@ const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const distDIR = 'dist';
 
-const fuseBox = new fsbx.FuseBox({
+const fuseBox = fsbx.FuseBox.init({
     homeDir: 'src/',
     sourceMap: {
         bundleReference: 'app.js.map',
@@ -16,6 +16,10 @@ const fuseBox = new fsbx.FuseBox({
     cache: true,
     outFile: './dist/app.js',
     plugins: [
+        [
+            fsbx.SassPlugin({ outputStyle: 'compressed' }),
+            fsbx.CSSPlugin()
+        ],
         fsbx.TypeScriptHelpers,
         fsbx.JSONPlugin,
         fsbx.HTMLPlugin({ useDefault: false })
@@ -25,21 +29,12 @@ const fuseBox = new fsbx.FuseBox({
 gulp.task('ts', () => {
     return fuseBox.bundle('>main.ts');
 });
-gulp.task('sass', () => {
-    return gulp.src('src/main.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-        .pipe(rename('app.css'))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(distDIR));
-});
+
 gulp.task('index', () => {
     return gulp.src('src/index.html').pipe(gulp.dest(distDIR));
 });
-gulp.task('watch', ['ts', 'sass', 'index'], () => {
-    gulp.watch('src/**/*.ts', ['ts']);
-    gulp.watch('src/**/*.html', ['ts']);
-    gulp.watch('src/**/*.scss', ['sass']);
+gulp.task('watch', ['ts', 'index'], () => {
+    gulp.watch('src/**/*.**', ['ts']);
     gulp.watch('src/index.html', ['index']);
 });
 gulp.task('default', ['watch'], () => {

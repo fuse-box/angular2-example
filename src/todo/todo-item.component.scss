@@ -1,7 +1,6 @@
 .todo-item {
     display: flex;
     padding: 10px 0;
-
     .checkbox-label {
         align-self: center;
     }
@@ -14,7 +13,6 @@
     .menu-button {
         margin-left: auto;
         color: #ccc;
-
         &:hover {
             color: #333;
         }
