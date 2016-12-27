@@ -5,4 +5,4 @@ It's a basic todo application with CRUD operations. Styled mostly by the angular
 
 #### Setup & run
 * npm install
-* gulp
+* npm start
