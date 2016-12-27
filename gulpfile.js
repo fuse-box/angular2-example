@@ -18,7 +18,7 @@ const fuseBox = fsbx.FuseBox.init({
     plugins: [
         [
             fsbx.SassPlugin({ outputStyle: 'compressed' }),
-            fsbx.CSSPlugin()
+            fsbx.CSSPlugin({ write: true })
         ],
         //fsbx.TypeScriptHelpers,
         fsbx.JSONPlugin(),
