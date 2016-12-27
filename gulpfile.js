@@ -20,8 +20,8 @@ const fuseBox = fsbx.FuseBox.init({
             fsbx.SassPlugin({ outputStyle: 'compressed' }),
             fsbx.CSSPlugin()
         ],
-        fsbx.TypeScriptHelpers,
-        fsbx.JSONPlugin,
+        //fsbx.TypeScriptHelpers,
+        fsbx.JSONPlugin(),
         fsbx.HTMLPlugin({ useDefault: false })
     ]
 });
