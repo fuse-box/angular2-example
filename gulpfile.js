@@ -1,8 +1,6 @@
 const gulp = require('gulp');
 const fsbx = require('fuse-box');
-const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
-const distDIR = 'dist';
 
 const fuseBox = fsbx.FuseBox.init({
     homeDir: 'src/',
@@ -27,14 +25,14 @@ gulp.task('fusebox', () => {
 });
 
 gulp.task('index', () => {
-    return gulp.src('src/index.html').pipe(gulp.dest(distDIR));
+    return gulp.src('src/index.html').pipe(gulp.dest('dist'));
 });
 gulp.task('watch', ['fusebox', 'index'], () => {
     gulp.watch('src/**/*.**', ['fusebox', 'index']);
 });
 gulp.task('default', ['watch'], () => {
     browserSync.init({
-        server: { baseDir: distDIR, directory: false },
+        server: { baseDir: 'dist', directory: false },
         startPath: '/'
     });
     gulp.watch('dist/**/*').on('change', browserSync.reload);
