@@ -6,9 +6,9 @@ const fuseBox = fsbx.FuseBox.init({
     homeDir: 'src/',
     sourceMap: {
         bundleReference: 'app.js.map',
-        outFile: './dist/app.js.map',
+        outFile: './app.js.map',
     },
-    outFile: './dist/app.js',
+    outFile: './app.js',
     plugins: [
         [
             fsbx.SassPlugin({ outputStyle: 'compressed' }),
@@ -25,7 +25,7 @@ gulp.task('fusebox', () => {
 });
 
 gulp.task('index', () => {
-    return gulp.src('src/index.html').pipe(gulp.dest('dist'));
+    return gulp.src('src/index.html').pipe(gulp.dest('./'));
 });
 gulp.task('watch', ['fusebox', 'index'], () => {
     gulp.watch('src/**/*.**', ['fusebox', 'index']);
