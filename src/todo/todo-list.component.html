@@ -1,10 +1,7 @@
 <h1 class="main-title">Fuse-box NG2 Todo</h1>
 <md-card class="center-card">
     <md-input-container class="full-width">
-        <input md-input
-               placeholder="Add a new todo"
-               [(ngModel)]="newTodo.name"
-               (keyup)="onKeyUp($event)">
+        <input md-input placeholder="Add a new todo" [(ngModel)]="newTodo.name" (keyup)="onKeyUp($event)">
     </md-input-container>
 </md-card>
 
@@ -12,10 +9,8 @@
     <md-card-content>
         <md-tab-group>
             <md-tab *ngFor="let listName of todoLists" label="{{listName}}">
-                    <todo-item [todo]="todo"
-                            (deleteTodo)="deleteTodo($event)"
-                            *ngFor="let todo of todos | todoFilter: listName">
-                    </todo-item>
+                <todo-item [todo]="todo" (deleteTodo)="deleteTodo($event)" *ngFor="let todo of todos | todoFilter: listName">
+                </todo-item>
             </md-tab>
         </md-tab-group>
     </md-card-content>

@@ -13,7 +13,7 @@ export class TodoListComponent implements OnInit {
     todoLists: string[];
 
     // This part is a little weird. @Inject shouldnt be necessary with TS, but it is with fuse-box
-    constructor( @Inject(TodoService) private todoService: TodoService) {}
+    constructor( @Inject(TodoService) private todoService: TodoService) { }
 
     ngOnInit() {
         this.todoLists = ['All', 'Pending', 'Done'];
@@ -31,12 +31,12 @@ export class TodoListComponent implements OnInit {
     }
     deleteTodo(todo: Todo) {
         const index = this.todos.indexOf(todo);
-        if(index !== -1) {
+        if (index !== -1) {
             this.todos.splice(index, 1);
         }
     }
     shouldShowClearAll() {
-        return _.some(this.todos, {done: true});
+        return _.some(this.todos, { done: true });
     }
     clearAllDone() {
         this.todos = _.filter(this.todos, t => !t.done);
