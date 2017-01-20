@@ -1,4 +1,5 @@
 node_modules/
-dist/
+dist/app.js
+dist/app.js.map
 .fusebox/
 .vscode/
