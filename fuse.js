@@ -1,11 +1,7 @@
 const fsbx = require('fuse-box');
-
+const closure = require('fusebox-closure-plugin').default
 const fuseBox = fsbx.FuseBox.init({
     homeDir: 'src/',
-    sourceMap: {
-        bundleReference: 'app.js.map',
-        outFile: './dist/app.js.map',
-    },
     outFile: './app.js',
     plugins: [
         [
@@ -14,10 +10,9 @@ const fuseBox = fsbx.FuseBox.init({
         ],
         fsbx.TypeScriptHelpers(),
         fsbx.JSONPlugin(),
-        fsbx.HTMLPlugin({ useDefault: false })
+        fsbx.HTMLPlugin({ useDefault: false }),
+        fsbx.UglifyJSPlugin()
     ]
 });
 
-fuseBox.devServer('>main.ts', {
-    port: 4445
-});
+fuseBox.bundle('>main.ts');
