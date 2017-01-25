@@ -1,4 +1,7 @@
 ### Fuse-box + Angular2
+
+### Angular 2 modern TODO app
+
 This is an example of how to power an Angular2 app with fuse-box.
 
 It's a basic todo application with CRUD operations.
