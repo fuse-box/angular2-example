@@ -1,3 +1,8 @@
 node_modules/
+<<<<<<< HEAD
+=======
+dist/app.js
+dist/app.js.map
+>>>>>>> origin
 .fusebox/
 .vscode/
