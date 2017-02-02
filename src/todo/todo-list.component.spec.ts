@@ -1,23 +1,22 @@
 import { TodoListComponent } from './todo-list.component';
 import { FormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, TestBed, ComponentFixture } from '@angular/core/testing'
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { TodoService } from './todo.service';
 
-import { spy, stub} from 'sinon';
+import { spy, stub } from 'sinon';
 import { expect } from 'chai';
 import { TodoFilter } from './todo-filter.pipe';
 
-import { 
-  BrowserDynamicTestingModule, 
-  platformBrowserDynamicTesting 
-} 
-from '@angular/platform-browser-dynamic/testing';
-
+import {
+    BrowserDynamicTestingModule,
+    platformBrowserDynamicTesting
+}
+    from '@angular/platform-browser-dynamic/testing';
 
 
 describe(TodoListComponent.name, () => {
-    let todoServiceMock: TodoService = <any> { getTodos: () => {} };
+    let todoServiceMock: TodoService = <any>{ getTodos: () => { } };
     let fixture: ComponentFixture<TodoListComponent>;
 
     before(() => {
@@ -26,10 +25,10 @@ describe(TodoListComponent.name, () => {
 
     after(() => {
         TestBed.resetTestEnvironment();
-    })
-    beforeEach((done) => {
-        //TestBed.resetTestingModule();
-        TestBed.configureTestingModule({ 
+    });
+
+    beforeEach(() => {
+        TestBed.configureTestingModule({
             declarations: [
                 TodoListComponent,
                 TodoFilter
@@ -37,7 +36,7 @@ describe(TodoListComponent.name, () => {
             imports: [
                 FormsModule
             ],
-            providers: [ 
+            providers: [
                 { provide: TodoService, useValue: todoServiceMock }
             ],
             schemas: [
@@ -46,8 +45,6 @@ describe(TodoListComponent.name, () => {
 
         });
         fixture = TestBed.createComponent(TodoListComponent);
-            done();
-        //})
     });
 
     it('calls service to get todos', () => {

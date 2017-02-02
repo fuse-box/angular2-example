@@ -29,8 +29,6 @@ require('zone.js/dist/fake-async-test');
 var testing = require('@angular/core/testing');
 var browser = require('@angular/platform-browser-dynamic/testing');
 
-global.window = window;
-
 
 var fs = require('fs');
 
@@ -44,4 +42,4 @@ require.extensions['.scss'] = function (module, filename) {
 };
 
 
-// testing.TestBed.initTestEnvironment(browser.BrowserDynamicTestingModule, browser.platformBrowserDynamicTesting());
+global.window = window;
