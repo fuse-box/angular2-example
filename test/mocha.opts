@@ -1,0 +1,8 @@
+--compilers ts-node/register
+--full-trace
+--bail
+--timeout 3000
+--watch src/**/!(main)*.ts
+--watch-extensions ts,spec.ts
+--require ./test/mocha.shim.js
+./src/**/*.spec.ts
