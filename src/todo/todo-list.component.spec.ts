@@ -1,10 +1,12 @@
 import { TodoListComponent } from './todo-list.component';
-
+import { FormsModule } from '@angular/forms';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, TestBed, ComponentFixture } from '@angular/core/testing'
 import { TodoService } from './todo.service';
 
 import { spy, stub} from 'sinon';
 import { expect } from 'chai';
+import { TodoFilter } from './todo-filter.pipe';
 
 import { 
   BrowserDynamicTestingModule, 
@@ -28,9 +30,18 @@ describe(TodoListComponent.name, () => {
     beforeEach((done) => {
         //TestBed.resetTestingModule();
         TestBed.configureTestingModule({ 
-            declarations: [ TodoListComponent ],
+            declarations: [
+                TodoListComponent,
+                TodoFilter
+            ],
+            imports: [
+                FormsModule
+            ],
             providers: [ 
                 { provide: TodoService, useValue: todoServiceMock }
+            ],
+            schemas: [
+                CUSTOM_ELEMENTS_SCHEMA
             ]
 
         });
