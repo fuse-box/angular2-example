@@ -1,4 +1,4 @@
-import 'reflect-metadata';
+import 'core-js/es7/reflect';
 // Angular wants it
 import 'zone.js/dist/zone';
 // Styles
