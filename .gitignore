@@ -3,3 +3,5 @@ dist/app.js
 dist/app.js.map
 .fusebox/
 .vscode/
+coverage/
+.nyc_output/

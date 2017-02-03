@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./fuse.js",
-    "test": "TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha  --opts ./test/mocha.opts -G"
+    "test": "TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha  --opts ./test/mocha.opts -G",
+    "coverage": "TS_NODE_PROJECT=./src/tsconfig.mocha.json nyc mocha  --opts ./test/mocha.coverage.opts -G"
   },
   "repository": {
     "type": "git",
@@ -50,5 +51,31 @@
     "lodash": "^4.17.3",
     "rxjs": "^5.0.1",
     "zone.js": "^0.7.2"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "src/**/*.spec.ts",
+      "src/**/*.module.ts",
+      "node_modules/",
+      "src/**/main.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "html",
+      "text-summary",
+      "text",
+      "lcov"
+    ],
+    "all": true,
+    "sourceMap": true,
+    "instrument": true
   }
 }
