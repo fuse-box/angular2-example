@@ -32,13 +32,15 @@ var browser = require('@angular/platform-browser-dynamic/testing');
 
 var fs = require('fs');
 
+
+
 require.extensions['.html'] = function (module, filename) {
-    module.exports = fs.readFileSync(filename, 'utf8');
+  module.exports = fs.readFileSync(filename, 'utf8');
 };
 
 
 require.extensions['.scss'] = function (module, filename) {
-    module.exports = fs.readFileSync(filename, 'utf8');
+  module.exports = fs.readFileSync(filename, 'utf8');
 };
 
 
