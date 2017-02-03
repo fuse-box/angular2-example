@@ -1,0 +1,6 @@
+--compilers ts-node/register
+--full-trace
+--bail
+--timeout 3000
+--require ./test/mocha.shim.js
+./src/**/*.spec.ts

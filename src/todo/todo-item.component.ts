@@ -3,7 +3,7 @@ import { Todo } from './todo.model';
 
 @Component({
     selector: 'todo-item',
-    template: require('~/todo/todo-item.component.html')
+    template: require('./todo-item.component.html')
 })
 export class TodoItemComponent implements OnInit {
     @Input() todo: Todo;

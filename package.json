@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./fuse.js"
+    "start": "node ./fuse.js",
+    "test": "TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha  --opts ./test/mocha.opts -G",
+    "coverage": "TS_NODE_PROJECT=./src/tsconfig.mocha.json nyc mocha  --opts ./test/mocha.coverage.opts -G"
   },
   "repository": {
     "type": "git",
@@ -17,10 +19,21 @@
   },
   "homepage": "https://github.com/fuse-box/angular2-example#readme",
   "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/core-js": "^0.9.35",
     "@types/lodash": "^4.14.44",
+    "@types/mocha": "^2.2.38",
     "@types/node": "^6.0.52",
+    "@types/sinon": "^1.16.34",
+    "chai": "^3.5.0",
     "fuse-box": "^1.3.82",
+    "js-dom": "^0.0.1",
+    "jsdom": "^9.9.1",
+    "mocha": "^3.2.0",
     "node-sass": "^4.1.1",
+    "nyc": "^10.1.2",
+    "sinon": "^1.17.7",
+    "ts-node": "^2.0.0",
     "typescript": "^2.1.4"
   },
   "dependencies": {
@@ -36,8 +49,33 @@
     "angular-in-memory-web-api": "^0.2.1",
     "core-js": "^2.4.1",
     "lodash": "^4.17.3",
-    "reflect-metadata": "^0.1.8",
     "rxjs": "^5.0.1",
     "zone.js": "^0.7.2"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "src/**/*.spec.ts",
+      "src/**/*.module.ts",
+      "node_modules/",
+      "src/**/main.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "html",
+      "text-summary",
+      "text",
+      "lcov"
+    ],
+    "all": true,
+    "sourceMap": true,
+    "instrument": true
   }
 }

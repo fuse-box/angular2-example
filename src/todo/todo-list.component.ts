@@ -5,7 +5,7 @@ import { Todo } from './todo.model';
 
 @Component({
     selector: 'todo-list',
-    template: require('~/todo/todo-list.component.html')
+    template: require('./todo-list.component.html')
 })
 export class TodoListComponent implements OnInit {
     todos: Todo[];
