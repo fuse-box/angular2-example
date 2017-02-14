@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./fuse.js",
-    "test": "TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha  --opts ./test/mocha.opts -G",
-    "coverage": "TS_NODE_PROJECT=./src/tsconfig.mocha.json nyc mocha  --opts ./test/mocha.coverage.opts -G"
+    "test": "set TS_NODE_PROJECT=./src/tsconfig.mocha.json&& mocha  --opts ./test/mocha.opts -G",
+    "coverage": "set TS_NODE_PROJECT=./src/tsconfig.mocha.json&& nyc mocha  --opts ./test/mocha.coverage.opts -G"
   },
   "repository": {
     "type": "git",
