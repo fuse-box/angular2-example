@@ -1,4 +1,4 @@
-var jsdom = require('jsdom-no-contextify')
+var jsdom = require('jsdom')
 
 var document = jsdom.jsdom('<!doctype html><html><head><title>Mocha Testing Page</title></head><body></body></html>');
 
