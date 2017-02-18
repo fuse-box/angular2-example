@@ -6,7 +6,8 @@
   "scripts": {
     "prestart": "rimraf dist && cpx ./src/index.html ./dist/",
     "start": "node ./fuse.js",
-    "test": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha --opts ./test/mocha.opts -G",
+    "test": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha --opts ./test/mocha.travis.opts",
+    "test:auto": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha --opts ./test/mocha.opts -G",
     "coverage": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json nyc mocha --opts ./test/mocha.coverage.opts -G"
   },
   "repository": {

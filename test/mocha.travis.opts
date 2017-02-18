@@ -1,0 +1,4 @@
+--compilers ts-node/register
+--full-trace
+--require ./test/mocha.shim.js
+./src/**/*.spec.ts

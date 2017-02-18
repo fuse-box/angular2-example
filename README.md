@@ -17,5 +17,7 @@ See the working demo [here](https://fuse-box.github.io/angular2-example/)!
 #### Setup & run
 * `npm install`
 * `npm start`
+* `npm test`: run tests
+* `npm test:auto`: run tests and watch files to re run tests
 
 Visit `http://localhost:4445/`
