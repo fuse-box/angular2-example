@@ -1,20 +1,18 @@
-const fsbx = require('fuse-box');
+const { FuseBox, SassPlugin, CSSPlugin, TypeScriptHelpers, JSONPlugin, HTMLPlugin } = require('fsbx');
+const path = require("path");
 
-const fuseBox = fsbx.FuseBox.init({
-    homeDir: 'src/',
-    sourceMap: {
-        bundleReference: 'app.js.map',
-        outFile: './dist/app.js.map',
-    },
-    outFile: './dist/app.js',
+const fuseBox = FuseBox.init({
+    homeDir: `src/`,
+    sourcemaps: true,
+    outFile: `dist/app.js`,
     plugins: [
         [
-            fsbx.SassPlugin({ outputStyle: 'compressed' }),
-            fsbx.CSSPlugin()
+            SassPlugin({ outputStyle: 'compressed' }),
+            CSSPlugin()
         ],
-        fsbx.TypeScriptHelpers(),
-        fsbx.JSONPlugin(),
-        fsbx.HTMLPlugin({ useDefault: false })
+        TypeScriptHelpers(),
+        JSONPlugin(),
+        HTMLPlugin({ useDefault: false })
     ]
 });
 
