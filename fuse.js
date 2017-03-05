@@ -1,4 +1,4 @@
-const { FuseBox, SassPlugin, CSSPlugin, TypeScriptHelpers, JSONPlugin, HTMLPlugin } = require('fsbx');
+const { FuseBox, SassPlugin, CSSPlugin, TypeScriptHelpers, JSONPlugin, HTMLPlugin } = require('fuse-box');
 const path = require("path");
 
 const fuseBox = FuseBox.init({
