@@ -5,3 +5,4 @@ dist/app.js.map
 .vscode/
 coverage/
 .nyc_output/
+.idea/

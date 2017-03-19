@@ -21,3 +21,6 @@ See the working demo [here](https://fuse-box.github.io/angular2-example/)!
 * `npm test:auto`: run tests and watch files to re run tests
 
 Visit `http://localhost:4445/`
+
+#### Note
+Angular 2 uses `ES6` features that might not work in old browsers, thus it will give you errors. to fix that check this page for adding required polyfills https://angular.io/docs/ts/latest/guide/browser-support.html
