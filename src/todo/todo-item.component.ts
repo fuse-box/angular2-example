@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from './todo.model';
-
+console.log("hello world");
 @Component({
     selector: 'todo-item',
     template: require('./todo-item.component.html')

@@ -1,12 +1,23 @@
-const { FuseBox, SassPlugin, CSSPlugin, TypeScriptHelpers, JSONPlugin, HTMLPlugin } = require('fuse-box');
+const {
+    FuseBox,
+    SassPlugin,
+    CSSPlugin,
+    WebIndexPlugin,
+    TypeScriptHelpers,
+    JSONPlugin,
+    HTMLPlugin
+} = require('fuse-box');
+
 const path = require("path");
 
-const fuseBox = FuseBox.init({
+const fuse = FuseBox.init({
     homeDir: `src/`,
-    sourcemaps: true,
-    outFile: `dist/app.js`,
+    output: `dist/$name.js`,
     plugins: [
-        [
+        WebIndexPlugin({
+            title: "FuseBox + Angular",
+            template: "src/index.html"
+        }), [
             SassPlugin({ outputStyle: 'compressed' }),
             CSSPlugin()
         ],
@@ -16,6 +27,20 @@ const fuseBox = FuseBox.init({
     ]
 });
 
-fuseBox.devServer('>main.ts', {
-    port: 4445
-});
+// setup development sever
+fuse.dev({ port: 4445 });
+
+
+// bundle vendor
+fuse.bundle("vendor")
+    .hmr()
+    .instructions(" ~ main.ts")
+
+// bundle application
+fuse.bundle("app")
+    .sourceMaps(true)
+    .instructions(" !> [main.ts]").watch().hmr()
+
+
+// run the factory
+fuse.run();
