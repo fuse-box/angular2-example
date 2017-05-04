@@ -1,86 +1,86 @@
 {
-    "name": "fusebox-angular",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "prestart": "rimraf dist && cpx ./src/index.html ./dist/",
-        "start": "node ./fuse.js",
-        "test": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha --opts ./test/mocha.travis.opts",
-        "test:auto": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha --opts ./test/mocha.opts -G",
-        "coverage": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json nyc mocha --opts ./test/mocha.coverage.opts -G"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/fuse-box/angular2-example.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/fuse-box/angular2-example/issues"
-    },
-    "homepage": "https://github.com/fuse-box/angular2-example#readme",
-    "devDependencies": {
-        "@types/chai": "^3.4.34",
-        "@types/core-js": "^0.9.35",
-        "@types/lodash": "^4.14.44",
-        "@types/mocha": "^2.2.38",
-        "@types/node": "^6.0.52",
-        "@types/sinon": "^1.16.34",
-        "chai": "^3.5.0",
-        "cpx": "^1.5.0",
-        "cross-env": "^3.1.4",
-        "fuse-box": "^2.0.0-beta.12",
-        "jsdom": "^9.11.0",
-        "jsdom-no-contextify": "^3.1.0",
-        "mocha": "^3.2.0",
-        "node-sass": "^4.1.1",
-        "nyc": "^10.1.2",
-        "rimraf": "^2.5.4",
-        "sinon": "^1.17.7",
-        "ts-node": "^2.0.0",
-        "typescript": "^2.1.4"
-    },
-    "dependencies": {
-        "@angular/common": "2.3.1",
-        "@angular/compiler": "2.3.1",
-        "@angular/core": "2.3.1",
-        "@angular/forms": "2.3.1",
-        "@angular/http": "2.3.1",
-        "@angular/material": "2.0.0-beta.2",
-        "@angular/platform-browser": "2.3.1",
-        "@angular/platform-browser-dynamic": "2.3.1",
-        "@angular/router": "3.3.1",
-        "angular-in-memory-web-api": "0.2.1",
-        "core-js": "2.4.1",
-        "lodash": "4.17.3",
-        "rxjs": "5.0.1",
-        "zone.js": "0.7.2"
-    },
-    "nyc": {
-        "include": [
-            "src/**/*.ts"
-        ],
-        "exclude": [
-            "src/**/*.spec.ts",
-            "src/**/*.module.ts",
-            "node_modules/",
-            "src/**/main.ts"
-        ],
-        "extension": [
-            ".ts"
-        ],
-        "require": [
-            "ts-node/register"
-        ],
-        "reporter": [
-            "html",
-            "text-summary",
-            "text",
-            "lcov"
-        ],
-        "all": true,
-        "sourceMap": true,
-        "instrument": true
-    }
+  "name": "fusebox-angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "rimraf dist && cpx ./src/index.html ./dist/",
+    "start": "node ./fuse.js",
+    "test": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha --opts ./test/mocha.travis.opts",
+    "test:auto": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha --opts ./test/mocha.opts -G",
+    "coverage": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json nyc mocha --opts ./test/mocha.coverage.opts -G"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuse-box/angular2-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fuse-box/angular2-example/issues"
+  },
+  "homepage": "https://github.com/fuse-box/angular2-example#readme",
+  "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/core-js": "^0.9.35",
+    "@types/lodash": "^4.14.44",
+    "@types/mocha": "^2.2.38",
+    "@types/node": "^6.0.52",
+    "@types/sinon": "^1.16.34",
+    "chai": "^3.5.0",
+    "cpx": "^1.5.0",
+    "cross-env": "^3.1.4",
+    "fuse-box": "^2.0.0-beta.13",
+    "jsdom": "^9.11.0",
+    "jsdom-no-contextify": "^3.1.0",
+    "mocha": "^3.2.0",
+    "node-sass": "^4.1.1",
+    "nyc": "^10.1.2",
+    "rimraf": "^2.5.4",
+    "sinon": "^1.17.7",
+    "ts-node": "^2.0.0",
+    "typescript": "^2.1.4"
+  },
+  "dependencies": {
+    "@angular/common": "2.3.1",
+    "@angular/compiler": "2.3.1",
+    "@angular/core": "2.3.1",
+    "@angular/forms": "2.3.1",
+    "@angular/http": "2.3.1",
+    "@angular/material": "2.0.0-beta.2",
+    "@angular/platform-browser": "2.3.1",
+    "@angular/platform-browser-dynamic": "2.3.1",
+    "@angular/router": "3.3.1",
+    "angular-in-memory-web-api": "0.2.1",
+    "core-js": "2.4.1",
+    "lodash": "4.17.3",
+    "rxjs": "5.0.1",
+    "zone.js": "0.7.2"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "src/**/*.spec.ts",
+      "src/**/*.module.ts",
+      "node_modules/",
+      "src/**/main.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "html",
+      "text-summary",
+      "text",
+      "lcov"
+    ],
+    "all": true,
+    "sourceMap": true,
+    "instrument": true
+  }
 }
