@@ -46,10 +46,10 @@ FuseBox.pkg("default", {}, function(___scope___){
 FuseBox.pkg("fusebox-hot-reload", {}, function(___scope___){
 ___scope___.file("index.js", function(exports, require, module, __filename, __dirname){
 
+"use strict";
 /**
  * @module listens to `source-changed` socket events and actions hot reload
  */
-"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Client = require('fusebox-websocket').SocketClient;
 exports.connect = function (port, uri) {
