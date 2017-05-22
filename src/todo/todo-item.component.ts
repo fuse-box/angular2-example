@@ -1,28 +1,34 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from './todo.model';
-console.log("hello world");
+
+console.log('hello world');
+
 @Component({
-    selector: 'todo-item',
-    template: require('./todo-item.component.html')
+  selector: 'todo-item',
+  template: require('./todo-item.component.html')
 })
 export class TodoItemComponent implements OnInit {
-    @Input() todo: Todo;
-    @Output() deleteTodo = new EventEmitter<Todo>();
-    editMode: boolean;
+  @Input() todo: Todo;
 
-    ngOnInit() {
-        this.editMode = false;
-    }
+  @Output() deleteTodo = new EventEmitter<Todo>();
 
-    onKeyUp(e: any) {
-        if (e.keyCode === 13 && this.todo.name) {
-            this.editMode = false;
-        }
+           editMode: boolean;
+
+  ngOnInit() {
+    this.editMode = false;
+  }
+
+  onKeyUp(e: any) {
+    if (e.keyCode === 13 && this.todo.name) {
+      this.editMode = false;
     }
-    toggleEditMode() {
-        this.editMode = !this.editMode;
-    }
-    deleteButtonClicked() {
-        this.deleteTodo.emit(this.todo);
-    }
+  }
+
+  toggleEditMode() {
+    this.editMode = !this.editMode;
+  }
+
+  deleteButtonClicked() {
+    this.deleteTodo.emit(this.todo);
+  }
 }

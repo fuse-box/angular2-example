@@ -14,6 +14,8 @@ import { TodoItemComponent } from './todo/todo-item.component';
 import { TodoListComponent } from './todo/todo-list.component';
 import { TodoService } from './todo/todo.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CovalentLoadingModule, TdLoadingService } from '@covalent/core';
+import { TdLoadingFactory } from '@covalent/core/loading/services/loading.factory';
 
 const MATERIAL_IMPORTS = [
   MdButtonModule,
@@ -37,7 +39,8 @@ const MATERIAL_IMPORTS = [
   MdSnackBarModule,
   MdTabsModule,
   MdToolbarModule,
-  MdTooltipModule
+  MdTooltipModule,
+  CovalentLoadingModule
 ];
 
 @NgModule({
@@ -58,7 +61,11 @@ const MATERIAL_IMPORTS = [
     TodoFilter,
     TodoItemComponent
   ],
-  providers:    [ TodoService ],
+  providers:    [
+    TodoService,
+    TdLoadingService,
+    TdLoadingFactory
+  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule {
