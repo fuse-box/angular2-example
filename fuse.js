@@ -18,17 +18,26 @@ const fuse = FuseBox.init({
             title: "FuseBox + Angular",
             template: "src/index.html"
         }), [
-            SassPlugin({ outputStyle: 'compressed' }),
+            SassPlugin({
+                outputStyle: 'compressed'
+            }),
             CSSPlugin()
         ],
         TypeScriptHelpers(),
         JSONPlugin(),
-        HTMLPlugin({ useDefault: false })
-    ]
+        HTMLPlugin({
+            useDefault: false
+        })
+    ],
+    alias: {
+        '@angular/animations': '@angular/platform-browser/bundles/platform-browser-animations.umd.js'
+    },
 });
 
 // setup development sever
-fuse.dev({ port: 4445 });
+fuse.dev({
+    port: 4445
+});
 
 
 // bundle vendor
