@@ -28,10 +28,7 @@ const fuse = FuseBox.init({
         HTMLPlugin({
             useDefault: false
         })
-    ],
-    alias: {
-        '@angular/animations': '@angular/platform-browser/bundles/platform-browser-animations.umd.js'
-    },
+    ]
 });
 
 // setup development sever

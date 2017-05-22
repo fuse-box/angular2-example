@@ -1,5 +1,7 @@
 <div class="todo-item">
-    <md-checkbox class="checkbox-label" [(ngModel)]="todo.done" *ngIf="!editMode">{{todo.name}}</md-checkbox>
+    <div *ngIf="!editMode">
+        <md-checkbox class="checkbox-label" [(ngModel)]="todo.done">{{todo.name}}</md-checkbox>
+    </div>
     <md-input-container class="edit-input" *ngIf="editMode">
         <input mdInput [(ngModel)]="todo.name" (keyup)="onKeyUp($event)">
     </md-input-container>
@@ -7,7 +9,7 @@
         <i class="material-icons">more_vert</i>
     </button>
     <md-menu #menu="mdMenu">
-        <button md-menu-item (click)="toggleEditMode()"> {{editMode ? 'Done editing' : 'Edit'}} </button>
+        <button md-menu-item (click)="toggleEditMode()"> {{editMode ? 'Done editing' : 'Edit'}}</button>
         <button md-menu-item (click)="deleteButtonClicked()"> Delete</button>
     </md-menu>
 </div>
