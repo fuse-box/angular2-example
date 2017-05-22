@@ -10,7 +10,7 @@
         "noImplicitAny": true,
         "noImplicitUseStrict": false,
         "strictNullChecks": true,
-        "noEmitHelpers": true,
+        "noEmitHelpers": false,
         "noLib": false,
         "outDir": "dist/"
     }
