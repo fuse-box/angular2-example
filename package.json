@@ -1,90 +1,90 @@
 {
-    "name": "fusebox-angular",
-    "version": "1.0.0",
-    "description": "",
-    "main": "main.js",
-    "scripts": {
-        "prestart": "rimraf dist .fusebox && cpx ./src/index.html ./dist/",
-        "start": "node ./fuse.js",
-        "test": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha --opts ./test/mocha.travis.opts",
-        "test:auto": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha --opts ./test/mocha.opts -G",
-        "coverage": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json nyc mocha --opts ./test/mocha.coverage.opts -G"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/fuse-box/angular2-example.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/fuse-box/angular2-example/issues"
-    },
-    "homepage": "https://github.com/fuse-box/angular2-example#readme",
-    "devDependencies": {
-        "@types/chai": "^3.5.2",
-        "@types/core-js": "^0.9.41",
-        "@types/lodash": "^4.14.64",
-        "@types/mocha": "^2.2.41",
-        "@types/node": "^7.0.21",
-        "@types/sinon": "^2.2.2",
-        "chai": "^3.5.0",
-        "cpx": "^1.5.0",
-        "cross-env": "^5.0.0",
-        "fuse-box": "2.1.0-beta.9",
-        "jsdom": "^10.1.0",
-        "jsdom-no-contextify": "^3.1.0",
-        "mocha": "^3.4.1",
-        "node-sass": "^4.5.3",
-        "nyc": "^10.3.2",
-        "rimraf": "^2.6.1",
-        "sinon": "^2.2.0",
-        "ts-node": "^3.0.4",
-        "typescript": "^2.3.2"
-    },
-    "dependencies": {
-        "@angular/animations": "4.1.3",
-        "@angular/common": "4.1.3",
-        "@angular/compiler": "4.1.3",
-        "@angular/core": "4.1.3",
-        "@angular/flex-layout": "2.0.0-beta.8",
-        "@angular/forms": "4.1.3",
-        "@angular/http": "4.1.3",
-        "@angular/material": "2.0.0-beta.5",
-        "@angular/platform-browser": "4.1.3",
-        "@angular/platform-browser-dynamic": "4.1.3",
-        "@angular/router": "4.1.3",
-        "@covalent/core": "^1.0.0-beta.4",
-        "@covalent/http": "^1.0.0-beta.4",
-        "angular-in-memory-web-api": "0.3.2",
-        "core-js": "2.4.1",
-        "lodash": "4.17.4",
-        "rxjs": "5.4.0",
-        "zone.js": "0.8.11"
-    },
-    "nyc": {
-        "include": [
-            "src/**/*.ts"
-        ],
-        "exclude": [
-            "src/**/*.spec.ts",
-            "src/**/*.module.ts",
-            "node_modules/",
-            "src/**/main.ts"
-        ],
-        "extension": [
-            ".ts"
-        ],
-        "require": [
-            "ts-node/register"
-        ],
-        "reporter": [
-            "html",
-            "text-summary",
-            "text",
-            "lcov"
-        ],
-        "all": true,
-        "sourceMap": true,
-        "instrument": true
-    }
+  "name": "fusebox-angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "prestart": "rimraf dist .fusebox && cpx ./src/index.html ./dist/",
+    "start": "node ./fuse.js",
+    "test": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha --opts ./test/mocha.travis.opts",
+    "test:auto": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json mocha --opts ./test/mocha.opts -G",
+    "coverage": "cross-env TS_NODE_PROJECT=./src/tsconfig.mocha.json nyc mocha --opts ./test/mocha.coverage.opts -G"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuse-box/angular2-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fuse-box/angular2-example/issues"
+  },
+  "homepage": "https://github.com/fuse-box/angular2-example#readme",
+  "devDependencies": {
+    "@types/chai": "^3.5.2",
+    "@types/core-js": "^0.9.41",
+    "@types/lodash": "^4.14.64",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^7.0.21",
+    "@types/sinon": "^2.2.2",
+    "chai": "^3.5.0",
+    "cpx": "^1.5.0",
+    "cross-env": "^5.0.0",
+    "fuse-box": "^2.0.2",
+    "jsdom": "^10.1.0",
+    "jsdom-no-contextify": "^3.1.0",
+    "mocha": "^3.4.1",
+    "node-sass": "^4.5.3",
+    "nyc": "^10.3.2",
+    "rimraf": "^2.6.1",
+    "sinon": "^2.2.0",
+    "ts-node": "^3.0.4",
+    "typescript": "^2.3.2"
+  },
+  "dependencies": {
+    "@angular/animations": "4.1.3",
+    "@angular/common": "4.1.3",
+    "@angular/compiler": "4.1.3",
+    "@angular/core": "4.1.3",
+    "@angular/flex-layout": "2.0.0-beta.8",
+    "@angular/forms": "4.1.3",
+    "@angular/http": "4.1.3",
+    "@angular/material": "2.0.0-beta.5",
+    "@angular/platform-browser": "4.1.3",
+    "@angular/platform-browser-dynamic": "4.1.3",
+    "@angular/router": "4.1.3",
+    "@covalent/core": "^1.0.0-beta.4",
+    "@covalent/http": "^1.0.0-beta.4",
+    "angular-in-memory-web-api": "0.3.2",
+    "core-js": "2.4.1",
+    "lodash": "4.17.4",
+    "rxjs": "5.4.0",
+    "zone.js": "0.8.11"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "src/**/*.spec.ts",
+      "src/**/*.module.ts",
+      "node_modules/",
+      "src/**/main.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "html",
+      "text-summary",
+      "text",
+      "lcov"
+    ],
+    "all": true,
+    "sourceMap": true,
+    "instrument": true
+  }
 }
