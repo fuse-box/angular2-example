@@ -7,39 +7,55 @@ const {
     TypeScriptHelpers,
     JSONPlugin,
     HTMLPlugin,
+    Sparky,
+    QuantumPlugin,
 } = require('fuse-box');
 
-const fuse = FuseBox.init({
-    homeDir: `src/`,
-    output: `dist/$name.js`,
-    plugins: [
-        WebIndexPlugin({
-            title: 'FuseBox + Angular',
-            template: 'src/index.html',
-        }), [
-            SassPlugin({
-                outputStyle: 'compressed',
+let fuse, app, vendor, isProduction;
+
+Sparky.task("config", () => {
+    fuse = FuseBox.init({
+        homeDir: `src/`,
+        output: `dist/$name.js`,
+        hash: isProduction,
+        plugins: [
+            WebIndexPlugin({
+                title: 'FuseBox + Angular',
+                template: 'src/index.html',
+            }), [
+                SassPlugin({
+                    outputStyle: 'compressed',
+                }),
+                CSSPlugin(),
+            ],
+            JSONPlugin(),
+            HTMLPlugin({
+                useDefault: false,
             }),
-            CSSPlugin(),
+            // http://fuse-box.org/page/quantum
+            isProduction && QuantumPlugin({
+                uglify: true
+            }),
         ],
-        TypeScriptHelpers(),
-        JSONPlugin(),
-        HTMLPlugin({
-            useDefault: false,
-        }),
-    ],
+    });
+
+    vendor = fuse.bundle('vendor').instructions(' ~ main.ts');
+    app = fuse.bundle('app')
+        .sourceMaps(!isProduction)
+        .instructions(' !> [main.ts]');
 });
 
-// setup development sever
-fuse.dev({
-    port: 4445,
+Sparky.task("default", ["clean", "config"], () => {
+    fuse.dev();
+    // add dev instructions
+    app.watch().hmr()
+    return fuse.run();
 });
 
-// bundle vendor
-fuse.bundle('vendor').hmr().instructions(' ~ main.ts');
-
-// bundle application
-fuse.bundle('app').sourceMaps(true).instructions(' !> [main.ts]').watch().hmr();
-
-// run the factory
-fuse.run();
+Sparky.task("clean", () => Sparky.src("dist/").clean("dist/"));
+Sparky.task("prod-env", ["clean"], () => { isProduction = true })
+Sparky.task("dist", ["prod-env", "config"], () => {
+    // comment out to prevent dev server from running (left for the demo)
+    fuse.dev();
+    return fuse.run();
+});
