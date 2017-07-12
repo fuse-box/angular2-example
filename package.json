@@ -30,7 +30,7 @@
     "chai": "^3.5.0",
     "cpx": "^1.5.0",
     "cross-env": "^5.0.0",
-    "fuse-box": "^2.2.0-beta.1",
+    "fuse-box": "^2.2.1-beta.4",
     "jsdom": "^10.1.0",
     "jsdom-no-contextify": "^3.1.0",
     "mocha": "^3.4.1",

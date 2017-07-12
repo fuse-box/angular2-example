@@ -18,6 +18,7 @@ Sparky.task("config", () => {
         homeDir: `src/`,
         output: `dist/$name.js`,
         hash: isProduction,
+        target: "browser",
         plugins: [
             WebIndexPlugin({
                 title: 'FuseBox + Angular',
@@ -34,7 +35,9 @@ Sparky.task("config", () => {
             }),
             // http://fuse-box.org/page/quantum
             isProduction && QuantumPlugin({
-                uglify: true
+                uglify: true,
+                hoisting: { names: ["tslib_1"] },
+                treeshake: true
             }),
         ],
     });
