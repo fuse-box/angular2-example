@@ -1,64 +1,74 @@
 const {
-    BabelPlugin,
     FuseBox,
-    SassPlugin,
-    CSSPlugin,
-    WebIndexPlugin,
-    TypeScriptHelpers,
-    JSONPlugin,
-    HTMLPlugin,
     Sparky,
-    QuantumPlugin,
-} = require('fuse-box');
+    WebIndexPlugin,
+    HTMLPlugin,
+    SassPlugin,
+    JSONPlugin,
+    CSSPlugin,
+    QuantumPlugin
+} = require("fuse-box");
+const { src, task, watch, context, fuse } = require("fuse-box/sparky");
 
-let fuse, app, vendor, isProduction;
 
-Sparky.task("config", () => {
-    fuse = FuseBox.init({
-        homeDir: `src/`,
-        output: `dist/$name.js`,
-        hash: isProduction,
-        target: "browser",
-        plugins: [
-            WebIndexPlugin({
-                title: 'FuseBox + Angular',
-                template: 'src/index.html',
-            }), [
-                SassPlugin({
-                    outputStyle: 'compressed',
+context(class {
+    getConfig() {
+        return FuseBox.init({
+            homeDir: "src",
+            output: "dist/$name.js",
+            target: "browser@es5",
+            hash: this.isProduction,
+            plugins: [
+                WebIndexPlugin({
+                    title: 'FuseBox + Angular',
+                    template: 'src/index.html',
+                }), [
+                    SassPlugin({
+                        outputStyle: 'compressed',
+                    }),
+                    CSSPlugin(),
+                ],
+                JSONPlugin(),
+                HTMLPlugin({
+                    useDefault: false,
                 }),
-                CSSPlugin(),
-            ],
-            JSONPlugin(),
-            HTMLPlugin({
-                useDefault: false,
-            }),
-            // http://fuse-box.org/page/quantum
-            isProduction && QuantumPlugin({
-                uglify: true,
-                hoisting: { names: ["tslib_1"] },
-                treeshake: true
-            }),
-        ],
-    });
+                this.isProduction && QuantumPlugin({
+                    bakeApiIntoBundle: "app",
+                    uglify: true
+                })
+            ]
+        })
+    }
+    createBundle(fuse) {
+        const vendor = fuse.bundle("vendor").instructions("~ main.ts");
+        if (!this.isProduction) {
+            vendor.watch()
+            vendor.hmr()
+        }
 
-    vendor = fuse.bundle('vendor').instructions(' ~ main.ts');
-    app = fuse.bundle('app')
-        .sourceMaps(!isProduction)
-        .instructions(' !> [main.ts]');
+        const app = fuse.bundle("app");
+        if (!this.isProduction) {
+            app.watch()
+            app.hmr()
+        }
+        app.instructions(">[main.ts]");
+        return app;
+    }
 });
 
-Sparky.task("default", ["clean", "config"], () => {
+task("clean", () => src("dist").clean("dist").exec())
+
+task("default", ["clean"], async context => {
+    const fuse = context.getConfig();
     fuse.dev();
-    // add dev instructions
-    app.watch().hmr()
-    return fuse.run();
+    context.createBundle(fuse);
+    await fuse.run();
 });
 
-Sparky.task("clean", () => Sparky.src("dist/").clean("dist/"));
-Sparky.task("prod-env", ["clean"], () => { isProduction = true })
-Sparky.task("dist", ["prod-env", "config"], () => {
-    // comment out to prevent dev server from running (left for the demo)
-    fuse.dev();
-    return fuse.run();
+task("dist", ["clean"], async context => {
+    context.isProduction = true;
+    const fuse = context.getConfig();
+    fuse.dev(); // remove it later
+    context.createBundle(fuse);
+    await fuse.run();
 });

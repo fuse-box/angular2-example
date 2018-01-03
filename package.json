@@ -59,6 +59,7 @@
     "@covalent/http": "^1.0.0-beta.4",
     "angular-in-memory-web-api": "0.3.2",
     "core-js": "2.4.1",
+    "fuse-box": "^3.0.0-next.48",
     "lodash": "4.17.4",
     "rxjs": "5.4.0",
     "zone.js": "0.8.11"
