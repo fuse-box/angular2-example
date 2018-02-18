@@ -1,20 +1,32 @@
 <h1 class="main-title">Fuse-box NG2 Todo!</h1>
-<md-card class="center-card">
-    <md-input-container class="full-width">
-        <input mdInput placeholder="Add a new todo" [(ngModel)]="newTodo.name" (keyup)="onKeyUp($event)">
-    </md-input-container>
-</md-card>
+<mat-card class="center-card">
+    <mat-card-content>
 
-<md-card class="center-card padding-none">
-    <md-card-content>
-        <md-tab-group>
-            <md-tab *ngFor="let listName of todoLists" label="{{listName}}">
+        <mat-form-field class="example-form-field">
+            <input matInput type="text" placeholder="Add a new todo" [(ngModel)]="newTodo.name" (keyup)="onKeyUp($event)">
+        </mat-form-field>
+
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="center-card padding-none">
+    <mat-card-content>
+
+        <mat-tab-group>
+
+            <mat-tab *ngFor="let listName of todoLists" label="{{listName}}">
+
                 <todo-item [todo]="todo" (deleteTodo)="deleteTodo($event)" *ngFor="let todo of todos | todoFilter: listName">
                 </todo-item>
-            </md-tab>
-        </md-tab-group>
-    </md-card-content>
-    <md-card-actions layout="row" layout-align="end center" *ngIf="shouldShowClearAll()">
-        <button md-button (click)="clearAllDone()">Clear all done</button>
-    </md-card-actions>
-</md-card>
+
+            </mat-tab>
+        </mat-tab-group>
+
+    </mat-card-content>
+
+    <mat-card-actions layout="row" layout-align="end center" *ngIf="shouldShowClearAll()">
+        <button color="primary" mat-button (click)="clearAllDone()">Clear all done</button>
+    </mat-card-actions>
+
+
+</mat-card>
