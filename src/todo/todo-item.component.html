@@ -1,15 +1,20 @@
 <div class="todo-item">
     <div *ngIf="!editMode">
-        <md-checkbox class="checkbox-label" [(ngModel)]="todo.done">{{todo.name}}</md-checkbox>
+        <mat-checkbox class="checkbox-label" [(ngModel)]="todo.done">{{todo.name}}</mat-checkbox>
     </div>
-    <md-input-container class="edit-input" *ngIf="editMode">
-        <input mdInput [(ngModel)]="todo.name" (keyup)="onKeyUp($event)">
-    </md-input-container>
-    <button class="menu-button" md-icon-button [mdMenuTriggerFor]="menu">
+
+
+    <mat-form-field class="example-form-field" class="edit-input" *ngIf="editMode">
+        <input matInput type="text" placeholder="" [(ngModel)]="todo.name" (keyup)="onKeyUp($event)">
+    </mat-form-field>
+
+    <button color="primary" mat-icon-button [matMenuTriggerFor]="menu">
         <i class="material-icons">more_vert</i>
     </button>
-    <md-menu #menu="mdMenu">
-        <button md-menu-item (click)="toggleEditMode()"> {{editMode ? 'Done editing' : 'Edit'}}</button>
-        <button md-menu-item (click)="deleteButtonClicked()"> Delete</button>
-    </md-menu>
+
+    <mat-menu #menu="matMenu" style="display: none">
+        <button mat-menu-item (click)="toggleEditMode()"> {{editMode ? 'Done editing' : 'Edit'}}</button>
+        <button mat-menu-item (click)="deleteButtonClicked()"> Delete</button>
+    </mat-menu>
+
 </div>

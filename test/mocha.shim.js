@@ -1,10 +1,17 @@
 var jsdom = require('jsdom')
 
-var document = jsdom.jsdom('<!doctype html><html><head><title>Mocha Testing Page</title></head><body></body></html>');
+const {JSDOM} = jsdom;
+
+//var document = jsdom.jsdom('<!doctype html><html><head><title>Mocha Testing Page</title></head><body></body></html>');
+
+
+const {document} = (new JSDOM('')).window;
+var doc = root.document || document;
+
 
 var window = document.defaultView;
 
-global.document = document;
+global.document = doc;
 global.HTMLElement = window.HTMLElement;
 global.XMLHttpRequest = window.XMLHttpRequest;
 global.Node = window.Node;
@@ -33,14 +40,13 @@ var browser = require('@angular/platform-browser-dynamic/testing');
 var fs = require('fs');
 
 
-
 require.extensions['.html'] = function (module, filename) {
-  module.exports = fs.readFileSync(filename, 'utf8');
+    module.exports = fs.readFileSync(filename, 'utf8');
 };
 
 
 require.extensions['.scss'] = function (module, filename) {
-  module.exports = fs.readFileSync(filename, 'utf8');
+    module.exports = fs.readFileSync(filename, 'utf8');
 };
 
 

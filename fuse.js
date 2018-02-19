@@ -8,7 +8,7 @@ const {
     CSSPlugin,
     QuantumPlugin
 } = require("fuse-box");
-const { src, task, watch, context, fuse } = require("fuse-box/sparky");
+const {src, task, watch, context, fuse} = require("fuse-box/sparky");
 
 
 context(class {
@@ -33,12 +33,13 @@ context(class {
                     useDefault: false,
                 }),
                 this.isProduction && QuantumPlugin({
-                    bakeApiIntoBundle: "app",
+                    //bakeApiIntoBundle: "app",
                     uglify: true
                 })
             ]
         })
     }
+
     createBundle(fuse) {
         const vendor = fuse.bundle("vendor").instructions("~ main.ts");
         if (!this.isProduction) {

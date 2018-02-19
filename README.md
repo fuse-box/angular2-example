@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/fuse-box/angular2-example.svg?branch=master)](https://travis-ci.org/fuse-box/angular2-example)
 
-### Fuse-box + Angular 4.1.3
+### Fuse-box + Angular 5.2.3
 
 ### Angular 2 modern TODO app
 

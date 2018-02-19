@@ -1,13 +1,13 @@
-import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { By } from '@angular/platform-browser';
-import { TodoListComponent } from './todo-list.component';
-import { ComponentFixture, TestBed } from '@angular/core/testing'
-import { TodoService } from './todo.service';
+import {CUSTOM_ELEMENTS_SCHEMA, DebugElement} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {By} from '@angular/platform-browser';
+import {TodoListComponent} from './todo-list.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing'
+import {TodoService} from './todo.service';
 
 import * as sinon from 'sinon';
-import { expect } from 'chai';
-import { TodoFilter } from './todo-filter.pipe';
+import {expect} from 'chai';
+import {TodoFilter} from './todo-filter.pipe';
 
 import {
     BrowserDynamicTestingModule,
@@ -17,7 +17,7 @@ import {
 
 
 describe(TodoListComponent.name, () => {
-    let todoServiceMock: TodoService = <any>{ getTodos: () => [{ name: 'task 1', done: false }] };
+    let todoServiceMock: TodoService = <any>{getTodos: () => [{name: 'task 1', done: false}]};
     let fixture: ComponentFixture<TodoListComponent>;
 
     beforeEach(() => {
@@ -27,6 +27,9 @@ describe(TodoListComponent.name, () => {
     afterEach(() => {
         TestBed.resetTestEnvironment();
     });
+
+
+
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -59,9 +62,9 @@ describe(TodoListComponent.name, () => {
         fixture.detectChanges();
         let el = fixture.debugElement.query(By.css('input'));
         fixture.componentInstance.newTodo.name = 'new task';
-        el.triggerEventHandler('keyup', { keyCode: 13 });
+        el.triggerEventHandler('keyup', {keyCode: 13});
         fixture.detectChanges();
-        expect(fixture.componentInstance.todos).to.include({ name: 'new task', done: false });
+        expect(fixture.componentInstance.todos).to.include({name: 'new task', done: false});
     });
 
     it('resets the new Todo after initialization', () => {
@@ -77,7 +80,7 @@ describe(TodoListComponent.name, () => {
 
         let el = fixture.debugElement.query(By.css('input'));
         fixture.componentInstance.newTodo.name = 'new task';
-        el.triggerEventHandler('keyup', { keyCode: 13 });
+        el.triggerEventHandler('keyup', {keyCode: 13});
         fixture.detectChanges();
 
         expect(spyOnResetNewTodo.called).to.be.ok;
@@ -93,8 +96,8 @@ describe(TodoListComponent.name, () => {
     it('clears all done tasks', () => {
         fixture.detectChanges();
 
-        let doneTask1 = { name: 'Done Task 1', done: true };
-        let doneTask2 = { name: 'Done Task 2', done: true };
+        let doneTask1 = {name: 'Done Task 1', done: true};
+        let doneTask2 = {name: 'Done Task 2', done: true};
 
         fixture.componentInstance.todos.push(doneTask1);
         fixture.componentInstance.todos.push(doneTask2);
@@ -107,7 +110,7 @@ describe(TodoListComponent.name, () => {
     it('#shouldShowClearAll responds true when exists done tasks', () => {
         fixture.detectChanges();
 
-        let doneTask1 = { name: 'Done Task 1', done: true };
+        let doneTask1 = {name: 'Done Task 1', done: true};
         fixture.componentInstance.todos.push(doneTask1);
 
         expect(fixture.componentInstance.shouldShowClearAll()).to.be.true;
@@ -116,7 +119,7 @@ describe(TodoListComponent.name, () => {
     it('#shouldShowClearAll responds false when does not exists done tasks', () => {
         fixture.detectChanges();
 
-        let doneTask1 = { name: 'Done Task 1', done: false };
+        let doneTask1 = {name: 'Done Task 1', done: false};
         fixture.componentInstance.todos.push(doneTask1);
 
         expect(fixture.componentInstance.shouldShowClearAll()).to.be.false;
