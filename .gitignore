@@ -6,3 +6,4 @@ coverage/
 dist/
 .history
 /.idea/
+.cache

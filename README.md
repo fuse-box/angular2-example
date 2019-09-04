@@ -1,24 +1,21 @@
-[![Build Status](https://travis-ci.org/fuse-box/angular2-example.svg?branch=master)](https://travis-ci.org/fuse-box/angular2-example)
+# Angular 8 and FuseBox v5
 
-### Fuse-box + Angular 5.2.3
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.2.
+### start
 
-### Angular 2 modern TODO app
 
-This is an example of how to power an Angular2 app with fuse-box.
+```bash
+npm start
+```
 
-It's a basic todo application with CRUD operations.
+### Preview production build
 
-The application uses HOT module reload approach to keep your browser window in sync. 
-You will get instant CSS updates as well.
+```bash
+npm run preview
+```
 
-* FuseBox takes care of es6 modules used in angular
+### Run production build
 
-See the working demo [here](https://fuse-box.github.io/angular2-example/)!
-
-#### Setup & run
-* `npm install`
-* `npm start`
-* `npm test`: run tests
-* `npm test:auto`: run tests and watch files to re run tests
-
-Visit `http://localhost:4445/`
+```bash
+npm run dist
+```
