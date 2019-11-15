@@ -1,4 +1,4 @@
-import { fusebox, pluginAngular, pluginSass, sparky } from "fuse-box";
+import { fusebox, pluginAngular, pluginLess, pluginSass, sparky } from "fuse-box";
 class Context {
   isProduction;
   runServer;
@@ -17,7 +17,8 @@ class Context {
 
       plugins: [
         pluginAngular("*.component.ts"),
-        pluginSass({ asText: true, useDefault: false })
+        pluginSass({ asText: true, useDefault: false }),
+        pluginLess({ asText: true, useDefault: false })
       ]
     });
 }
